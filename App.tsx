@@ -1,26 +1,8 @@
-import { StyleSheet, Text, View } from 'react-native'
 import Constants from 'expo-constants'
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-})
-
-function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-    </View>
-  )
-}
-
-let AppEntryPoint = App
+import { renderRootComponent } from 'expo-router/build/renderRootComponent'
+import './global.css'
 
 if (Constants.expoConfig.extra.storybookEnabled === 'true')
-  AppEntryPoint = require('./.storybook').default
-
-export default AppEntryPoint
+  renderRootComponent(require('./.storybook').default)
+else
+  renderRootComponent(require('expo-router/build/qualified-entry').App)

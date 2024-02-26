@@ -84,3 +84,14 @@ buck-out/
 .expo/*
 web-build/
 
+# yarn
+.yarn/*
+!.yarn/cache
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# Storybook
+.storybook/storybook.requires.js
